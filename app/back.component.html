@@ -1,0 +1,30 @@
+<br><br>
+<div fxLayout="column" fxLayoutAlign ="center center">
+<h2>List</h2>
+
+<ng-container *ngIf="posts.length; else elseTemplate">
+
+    <ul class="list-group">
+        <div class="list-group-item" *ngFor="let post of posts; let i = index">
+            <h5>{{i+1}}) {{post.name | uppercase}}</h5>
+            <p>
+                {{post.content | json}}
+              <br>
+                {{post.date | date}}
+            </p>
+        </div>
+    </ul>
+    
+
+</ng-container>
+</div>
+<br>
+<div fxLayoutAlign ="center center">
+<ng-template #elseTemplate>
+
+    <div  role="alert">
+        No Post Found!
+    </div>
+
+</ng-template>
+</div>

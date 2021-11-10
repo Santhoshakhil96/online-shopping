@@ -1,0 +1,12 @@
+<div>
+    <app-toolbar></app-toolbar>
+
+<div>
+    <app-feedback (postCreate)="onPostAdded($event)"></app-feedback>
+</div>
+
+<div>
+    <app-back [posts]="storedPosts"></app-back>
+</div> 
+
+</div>
