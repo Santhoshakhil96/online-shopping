@@ -1,0 +1,92 @@
+<div>
+  <mat-toolbar>
+    <button mat-icon-button><mat-icon  matBadgeColor="warn" routerLink="/login" routerLinkActive="active">arrow_back</mat-icon></button>
+    <h1 style="color: yellowgreen;">M</h1>art Cart
+    <div fxFlex fxLayoutAlign="flex-end center" fxLayoutGap="15px">
+    
+    <button mat-icon-button><mat-icon  matBadgeColor="warn" routerLink="/home" routerLinkActive="active">home</mat-icon></button>
+    <button mat-icon-button><mat-icon matBadge="15" matBadgeColor="accent" routerLink="/about-us">inventory_2</mat-icon></button>
+    <button mat-icon-button><mat-icon  [matBadge]="badgeCounter" matBadgeColor="accent" routerLink="/cart" routerLinkActive="active">shopping_cart</mat-icon></button>
+    <button mat-icon-button><mat-icon  matBadgeColor="warn" routerLink="/report" routerLinkActive="active">feedback</mat-icon></button>
+    
+    
+  </div>
+  </mat-toolbar>
+</div>
+<br>
+<br>
+
+<div>
+  <mat-carousel timings="250ms ease-in" [autoplay]="true" interval="5000" color="accent" maxWidth="auto" proportion="25" slides="5"
+  [loop]="true"
+  [hideArrows]="false"
+  [hideIndicators]="false"
+  [useKeyboard]="true"
+  [useMouseWheel]="true"
+  orientation="ltr"
+>
+  <mat-carousel-slide #matCarouselSlide *ngFor="let slide of slides; let i = index" [image]="slide.image" overlayColor="#00000040" [hideOverlay]="true"></mat-carousel-slide>
+</mat-carousel>
+</div>
+
+<br>
+<br>
+<div>
+  <h2 style="padding-left: 30px; font-family: 'Poppins', sans-serif; color: #ff523b;">Latest Product</h2>
+  <b><mat-divider style="margin-left: 25px; margin-right: 1180px;"></mat-divider></b>
+</div>
+<br>
+<br>
+
+
+
+<div class="content">
+  <div fxLayout="row wrap" fxLayoutGap="30px grid" fxLayout.lt-sm="column">
+    <div  class="one" fxFlex="25%"   fxFlex.xs="100%" fxFlex.sm="50%" fxFlex.md="33%" fxFlex.lg="25%" *ngFor="let picture of pictures; let i = index">
+      <mat-card class="mat-elevation-z4" style="height: 450px;">
+          <img mat-card-image [src]="picture.img" alt="pic">
+        <mat-card-content>
+            <h2>{{picture.title}}</h2>
+          <p>{{picture.price | currency:"INR"}}<b>({{picture.offer}})</b></p>
+        </mat-card-content>
+        <mat-card-actions fxLayoutAlign="space-around">
+          <button mat-raised-button style="background-color: #ff523b; color: white;" (click)= buy(i)>Buynow</button>
+          <button mat-raised-button color="primary" (click)= addcart(i)>Add to Cart</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+  </div>
+
+  <br>
+  <br>
+  <br>
+
+  <div>
+    <h2 style="padding-left: 30px; font-family: 'Poppins', sans-serif;">Featured Product</h2>
+    <b><mat-divider style="margin-left: 25px; margin-right: 1180px;"></mat-divider></b>
+  </div>
+  <br>
+  <br>
+
+  
+
+<div class="content">
+  <div fxLayout="row wrap" fxLayoutGap="30px grid" fxLayout.lt-sm="column">
+    <div fxFlex="25%" class="one" fxFlex.xs="100" fxFlex.sm="50%" fxFlex.md="33%" fxFlex.lg="25%" *ngFor="let picture of getchild;  let i = index">
+      <mat-card class="mat-elevation-z4"  style="height: 450px;">
+        <img mat-card-image [src]="picture.img" alt="pic">
+
+        <mat-card-content>
+            <h2>{{picture.title}}</h2>
+          <p>&#8377;{{picture.price}}.00 <b>({{picture.offer}})</b></p>
+        </mat-card-content>
+        <mat-card-actions fxLayoutAlign="space-around">
+          <button mat-raised-button style="background-color: #ff523b; color: white;" (click)= buytwo(i)>Buynow</button>
+          <button mat-raised-button color="primary" (click)= addcarttwo(i)>Add to Cart</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+  </div>
+  <app-product></app-product>

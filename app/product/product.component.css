@@ -1,0 +1,16 @@
+.content {
+    padding-left: 55px;
+    padding-right: 55px;
+}
+.content > mat-card {
+    width: 200px;
+    
+}
+
+.mat-card-image{
+    height: 300px;
+    width: 270px;
+    padding-left: 10px;
+    padding-top: 20px;
+    padding-right: 10px
+}

@@ -1,0 +1,32 @@
+<div style="height: 100%;width: 100%;">
+<div fxFlex="50" style="background-image: url(../../assets/img17.jpg);" fxLayout="column" >
+<h1 style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; text-align: center;padding-top: 45%;color: darkorange;">
+  '' LET'S CELEBRATE THE <br>
+        FESTIVAL ''
+</h1>
+</div>
+
+
+<div  fxLayoutAlign="center center" style="text-align: center; padding-top: 120px; background-image: url(../../assets/img21.png);background-repeat: no-repeat;" fxFlex="50">
+  <mat-card style="width: 400px; " fxLayout="column" fxLayoutAlign="center"><h1>Login Form</h1>
+    <form [formGroup]="loginform">
+      <mat-card-content fxLayout="column">
+              <mat-form-field class="loginpage">
+                  <input type="text" matInput placeholder="Email" [(ngModel)]="inputname" name="first" formControlName="emailid" required>
+                  <mat-error *ngIf="loginform.get('emailid').invalid">Invalid Mailid</mat-error>
+              </mat-form-field>
+              <mat-form-field class="loginpage">
+                  <input type="password" matInput placeholder="Password" [(ngModel)]="inputpwd" name="first" formControlName="password" required>
+                  <mat-error *ngIf="loginform.get('password').invalid">PasswordMust</mat-error>
+                </mat-form-field>
+              <div fxLayoutAlign="space-around">
+                  <button mat-raised-button class="loginbtn1" color="primary" (click)="navtohome()">Login</button>
+                  <button mat-raised-button class="loginbtn2"color="warn" routerLink="/signin" routerLinkActive="active" >Register</button>
+                  <button mat-raised-button class="loginbtn3"color="warn" (click)="navtoadminpage()">Admin Login</button>
+              </div>     
+      </mat-card-content>
+    </form>
+  </mat-card>
+</div>
+
+</div>

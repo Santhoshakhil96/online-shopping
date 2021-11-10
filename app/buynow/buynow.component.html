@@ -1,0 +1,66 @@
+<div  fxLayout="column" style="height: 100%;width: 100%;" *ngFor="let picture of pictures; let i = index">
+ 
+  <div >
+    <mat-toolbar>
+      <button mat-icon-button><mat-icon  matBadgeColor="warn" routerLink="/home" routerLinkActive="active">arrow_back</mat-icon></button>
+      <h1 style="color: #ff523b;">M</h1>art Cart
+      <div fxFlex fxLayoutAlign="flex-end center" fxLayoutGap="15px">
+      
+      <button mat-icon-button><mat-icon  matBadgeColor="warn" routerLink="/home" routerLinkActive="active">home</mat-icon></button>
+      <button mat-icon-button><mat-icon matBadge="15" matBadgeColor="warn" routerLink="/about-us">inventory_2</mat-icon></button>
+      <button mat-icon-button><mat-icon matBadge="15" matBadgeColor="warn" routerLink="/cart" routerLinkActive="active">shopping_cart</mat-icon></button>
+      <button mat-icon-button><mat-icon  matBadgeColor="warn" routerLink="/report" routerLinkActive="active">feedback</mat-icon></button>
+      
+      
+    </div>
+    </mat-toolbar>
+  </div>
+
+  <br><br>
+
+  <div> 
+
+  <div fxFlex="50" fxLayout="row" fxLayoutAlign="space-around center" >
+    <img src="{{picture.img}}" style="height: 350px;" alt="img">
+  </div>
+
+    <div fxFlex="50"  fxLayout.lt-sm="column" flFlex.xs="70%">
+      <div >
+        <br>
+      <h1>
+        {{picture.title}}
+      </h1>
+
+      <br>
+      
+      <h2>
+         <b>MRP:</b>{{picture.price | currency:"INR"}} <b>({{picture.offer}})</b>
+      </h2>
+
+      <p>
+        Free Delivery: Orders over &#x20B9;499 shipped by Martcart
+      </p>
+
+      <div fxLayout="row" >
+      <button  mat-mini-fab (click)="decrement(i)"  type="button" class="add-i-b valdown">-</button>
+      <span class="number" >{{item_qty}}</span>
+      <button  mat-mini-fab (click)="increment(i)"  type="button" class="add-i-b valup">+</button>
+      </div>
+
+      <br>
+      <h2>
+        Total Price:{{itemfinal | currency:"INR"}}
+      </h2>
+
+    </div>
+
+
+  </div>
+
+
+  </div>
+
+  
+
+</div>
+
