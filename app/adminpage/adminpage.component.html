@@ -1,0 +1,67 @@
+<div>
+  <mat-toolbar>
+    <h1 style="color: #ff523b;">M</h1><h4>art Cart</h4>
+    <div fxFlex fxLayoutAlign="flex-end center" fxLayoutGap="15px">
+      <button mat-icon-button><mat-icon  matBadgeColor="warn" routerLink="/dialogbox" routerLinkActive="active">admin_panel_settings</mat-icon></button>
+      <button mat-icon-button><mat-icon  matBadgeColor="warn" routerLink="/login" routerLinkActive="active">logout</mat-icon></button>
+  </div>
+  </mat-toolbar>
+</div>
+
+<br>
+<br>
+<div>
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef> Id </th>
+    <td mat-cell *matCellDef="let element; let i = index;"> {{i+1}} </td>
+ </ng-container>
+
+  <ng-container matColumnDef="firstname">
+    <th mat-header-cell *matHeaderCellDef> No </th>
+    <td mat-cell *matCellDef="let element"> {{element.firstname | uppercase}} </td>
+  </ng-container>
+
+
+  <ng-container matColumnDef="lastname">
+    <th mat-header-cell *matHeaderCellDef> Name </th>
+    <td mat-cell *matCellDef="let element"> {{element.lastname}} </td>
+  </ng-container>
+
+
+  <ng-container matColumnDef="username">
+    <th mat-header-cell *matHeaderCellDef> User Name </th>
+    <td mat-cell *matCellDef="let element"> {{element.username}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="emailid">
+    <th mat-header-cell *matHeaderCellDef> Email Id </th>
+    <td mat-cell *matCellDef="let element"> {{element.emailid}} </td>
+  </ng-container>
+
+    <ng-container matColumnDef="password">
+      <th mat-header-cell *matHeaderCellDef> Password </th>
+      <td mat-cell *matCellDef="let element"> {{element.password}} </td>
+    </ng-container>
+
+  <ng-container matColumnDef="action">
+    <th mat-header-cell *matHeaderCellDef> Action </th>
+    <td mat-cell *matCellDef="let element; let j = index"><button mat-raised-button (click)="ondelete(j)" color="warn">Remove</button> </td>
+  </ng-container>
+
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row ;columns: displayedColumns;"></tr>
+</table>
+</div>
+
+
+<br><br>
+<div>
+  <h2>
+    To View Already Existing Employee Click <strong> Admin Panel </strong>
+  </h2>
+</div>
+
+
